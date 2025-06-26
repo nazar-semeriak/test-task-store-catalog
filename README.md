@@ -23,7 +23,7 @@ A clean and modern product catalog web application built with **Next.js 15 (App 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/product-catalog-app.git
+git clone https://github.com/nazar-semeriak/test-task-store-catalog
 cd test-task-store-catalog
 
 ###  2.Install dependencies

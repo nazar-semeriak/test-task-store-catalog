@@ -8,7 +8,7 @@ import { Typography } from "@/components/ui/typography";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import React from "react";
-import { productDeetailsBreadcrumb } from "./data/productDeetailsBreadcrumb";
+
 import ProductDetailsLoading from "@/app/catalog/[productId]/loading";
 
 const ProductDetails: React.FunctionComponent = () => {
@@ -28,6 +28,15 @@ const ProductDetails: React.FunctionComponent = () => {
   if (error) {
     return <div>{error.message}</div>;
   }
+
+  const productDeetailsBreadcrumb = [
+    { label: "Home", href: "/" },
+    { label: "Catalog", href: "/catalog" },
+    {
+      label: isLoading ? "loading" : product.name,
+      href: isLoading ? "loading" : product.name,
+    },
+  ];
 
   return (
     <PageLayout

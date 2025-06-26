@@ -7,6 +7,7 @@ import {
   BreadcrumbSeparator,
 } from "./breadcrumb";
 import Link from "next/link";
+import { Skeleton } from "./skeleton";
 
 interface IBredcrumbData {
   label: string;
@@ -25,16 +26,20 @@ const PageBreadcrumb: React.FunctionComponent<IPageBreadcrumbProps> = ({
       <BreadcrumbList>
         {data?.map(({ label, href }, i) => (
           <React.Fragment key={label}>
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link
-                  href={href}
-                  className={`${data?.length - 1 === i ? "text-black" : ""}`}
-                >
-                  {label}
-                </Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
+            {label === "loading" ? (
+              <Skeleton className=" w-[150px] h-4" />
+            ) : (
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link
+                    href={href}
+                    className={`${data?.length - 1 === i ? "text-black" : ""}`}
+                  >
+                    {label}
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+            )}
             {data && data?.length - 1 !== i && <BreadcrumbSeparator />}
           </React.Fragment>
         ))}

@@ -1,7 +1,5 @@
-export default function Home() {
-  return (
-    <div className="max-w-screen-xl m-auto">
-      <h1>Adding button</h1>
-    </div>
-  );
+import Home from "@/components/pages/home/Home";
+
+export default function HomePage() {
+  return <Home />;
 }

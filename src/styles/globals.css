@@ -1,7 +1,12 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+
+@tailwind utilities;
+
 @custom-variant dark (&:is(.dark *));
+
+
 
 @theme inline {
   --color-background: var(--background);
@@ -118,5 +123,78 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/*======Custom classes===========*/
+.scrollbar-hide {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+
+@layer utilities {
+  @media (min-width: 1000px) and (max-width: 1199px) {
+    .grid-cols-3-productWrapper {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+}
+@layer utilities {
+  @media (min-width: 700px) and (max-width: 1024px) {
+    .grid-cols-3-productWrapper-xl {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+}
+@layer utilities {
+  @media (min-width: 280px) and (max-width: 769px) {
+    .grid-cols-2-productWrapper-sm {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+}
+@layer utilities {
+  @media (max-width: 480px) {
+    .grid-cols-1-productWrapper-xs {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+  }
+}
+
+
+@layer utilities {
+  .imgContainer {
+    position: relative;
+   width: 100%;
+   height: 100%;
+   aspect-ratio: 1/1;
+  }
+}
+
+@layer utilities {
+  .image {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@layer utilities {
+  .cardHoverZoom {
+    @apply overflow-hidden rounded-2xl duration-300 ease-in-out hover:scale-105 cursor-pointer;
+  }
+}
+
+@layer utilities {
+  .productNameHover {
+    @apply hover:text-blue-600 cursor-pointer transition-all duration-300 hover:underline;
   }
 }
